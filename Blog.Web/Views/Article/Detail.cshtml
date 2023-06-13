@@ -1,0 +1,51 @@
+﻿
+@model ArticleDetailVM
+
+@section Header
+    {
+    <header class="header" id="home">
+        <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(https://raw.githubusercontent.com/creativetimofficial/argon-dashboard/gh-pages/assets-old/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+            <!-- Mask -->
+            @*            <span class="mask bg-gradient-default opacity-8"></span>*@
+            <!-- Header container -->
+        </div>
+    </header>
+   }
+
+<div class="container pt-3">
+<div class="col-md-12">
+    <!-- Box Comment -->
+    <div class="card card-widget">
+        <div class="card-header">
+            <div class="user-block">
+                <img class="img-circle" style="height:40px; width:40px;" src="@Model.UserImage" alt="User Image">
+                        <span class="username"><a asp-action="AppUserProfile" asp-controller="User" asp-route-id="@Model.UserId">@Model.UserFullName</a></span>
+                <span class="description">Oluşturulma Tarihi: @Model.CreatedDate.ToShortDateString()</span>
+            </div>
+            <!-- /.user-block -->
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <img class="img-fluid pad" style="height:550px; width:1100px" src="@Model.Image" alt="Photo">
+            <h2>@Model.Title</h2>
+            <p>@Model.Content</p>
+            
+            <span class="float-right text-muted">@Model.Likes.Count() Likes - @Model.Comments.Count() Comments</span>
+        </div>
+    </div>
+    <!-- /.card -->
+</div>
+</div>
+@section Footer
+    {
+    <footer class="footer">
+        <div class="row align-items-center justify-content-xl-between">
+            <div class="col-xl-6 m-auto text-center">
+                <div class="copyright">
+                    <p>Made with <a href="https://www.creative-tim.com/product/argon-dashboard" target="_blank">Argon Dashboard</a> by Creative Tim</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+}

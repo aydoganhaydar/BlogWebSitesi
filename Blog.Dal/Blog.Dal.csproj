@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20230326112859_UpdateCategoryTable.cs" />
+    <Compile Remove="Migrations\20230326112859_UpdateCategoryTable.Designer.cs" />
+    <Compile Remove="Migrations\20230326114617_UpdateCategoriesTable.cs" />
+    <Compile Remove="Migrations\20230326114617_UpdateCategoriesTable.Designer.cs" />
+    <Compile Remove="Migrations\20230326120115_UpdateCategory.cs" />
+    <Compile Remove="Migrations\20230326120115_UpdateCategory.Designer.cs" />
+    <Compile Remove="Migrations\20230326123137_UpdateCategoryTable.cs" />
+    <Compile Remove="Migrations\20230326123137_UpdateCategoryTable.Designer.cs" />
+    <Compile Remove="Migrations\20230326124632_UpdateCategories.cs" />
+    <Compile Remove="Migrations\20230326124632_UpdateCategories.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.21" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Blog.Model\Blog.Model.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,45 @@
+﻿
+@model Tuple<List<GetArticleVM>,AppUser>
+
+@section UserInfo
+    {
+    @await Component.InvokeAsync("AppUsers", new  {id=Model.Item2.ID})
+ }
+
+    <div class="card col-md-8" style="margin-left:300px; margin-top:50px; margin-bottom:50px;">
+        <div class="card-header" style="margin-top:10px;">
+            <h3 class="card-title">MAKALE LİSTESİ</h3>
+        </div>
+        <div class="card-body p-0" style="margin-bottom:10px;">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+
+                        <th>Resim</th>
+                        <th>Başlık</th>
+                        <th>Kullanıcı Adı</th>
+                        <th>Kategori Adı</th>
+                        <th></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (GetArticleVM item in Model.Item1)
+                {
+                    <tr>
+                        <td> <img src="@item.Image" class="img-circle elevation-2" alt="User Image" /></td>
+                        <td>@item.Title</td>
+                        <td>@item.FullName</td>
+                        <td>@item.CategoryName</td>
+                        <td><a asp-action="Update" asp-route-id="@item.ArticleID" class="btn btn-success">Güncelle</a></td>
+                        <td><a asp-action="Delete" asp-route-id="@item.ArticleID" class="btn btn-warning">Sil</a></td>
+                        <td><a asp-action="Detail" asp-route-id="@item.ArticleID" class="btn btn-info">Detay</a></td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+</div>

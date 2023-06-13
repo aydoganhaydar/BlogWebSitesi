@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Steller landing page.">
+    <meta name="author" content="Devcrud">
+    <title>Wonder</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- <head> bitiş -->
+    <!-- </body> etiketi bitişinden hemen önce aşağıdaki dosyalari çağırıyoruz -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+    <link href="~/temp/hakkimizda.css" rel="stylesheet" />
+    <link href="~/temp/hakkimizdaresponse.css" rel="stylesheet" />
+
+    <link href="~/temp/adminlte.min.css" rel="stylesheet" />
+    <link href="~/temp/comment.css" rel="stylesheet" />
+    <link href="~/temp/all.min.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/css/menu.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <link rel="stylesheet" href="~/assets/vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="~/Andrea/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="~/Andrea/css/animate.css">
+    <link rel="stylesheet" href="~/Andrea/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Andrea/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Andrea/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/Andrea/css/aos.css">
+    <link rel="stylesheet" href="~/Andrea/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/Andrea/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/Andrea/css/jquery.timepicker.css">
+    <link rel="stylesheet" href="~/Andrea/css/flaticon.css">
+    <link rel="stylesheet" href="~/Andrea/css/icomoon.css">
+    <link rel="stylesheet" href="~/Andrea/css/style.css">
+</head>
+<body>
+    <div class="main-content">
+        <nav class="navbar navbar-top navbar-expand-md " id="navbar" data-spy="affix" data-offset-top="0" style="margin-top:20px;">
+            <div class="container-fluid">
+                <ul>
+                    <li style="width:120px">
+                        <a class="text-dark" asp-area="Member" asp-controller="AppUser" asp-action="Index">ANA SAYFA</a>
+                    </li>
+                    <li style="width:120px;">
+                        <a class="text-dark" asp-area="Member" asp-controller="Home" asp-action="Hakkimizda">HAKKIMIZDA</a>
+                    </li>
+                    <li >
+                        <a class="text-dark" asp-area="Member" asp-controller="Home" asp-action="Hakkimizda">@RenderSection("UserInfo",required:false)</a>
+                        <ul>
+                            <li style="width:150px;">
+                                <a class="text-dark" asp-action="ProfileDetail" asp-controller="AppUser" asp-area="Member">
+                                    PROFİL DÜZENLE
+                                </a>
+                            </li>
+                            <li style="width:150px;">
+                                <a class="text-dark" asp-action="Create" asp-controller="Article" asp-area="Member">
+                                    MAKALE EKLE
+                                </a>
+                            </li>
+                            <li style="width:150px;">
+                                <a class="text-dark" asp-action="List" asp-controller="Article" asp-area="Member">
+                                    MAKALE LİSTEM
+                                </a>
+                            </li>
+                            <li style="width:150px;">
+                                <a class="text-dark" asp-action="Create" asp-controller="Category" asp-area="Member">
+                                    KATEGORİ EKLE
+                                </a>
+                            </li>
+                            <li style="width:150px;">
+                                <a class="text-dark" asp-action="List" asp-controller="Category" asp-area="Member">
+                                    KATEGORİ LİSTESİ
+                                </a>
+                            </li>
+                            <li style="width:150px;">
+                                <a class="text-dark" asp-action="Logout" asp-controller="AppUser" asp-area="Member">
+                                    Çıkış Yap
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <header class="header" id="home">
+            <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(https://raw.githubusercontent.com/creativetimofficial/argon-dashboard/gh-pages/assets-old/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+                <!-- Mask -->
+                @* <span class="mask bg-gradient-default opacity-8"></span>*@
+                <!-- Header container -->
+            </div>
+                @RenderSection("Widget",required:false)
+            </div>
+        </header>
+
+    </div>
+    @RenderBody()
+
+    <section id="contact" class="position-relative section">
+        <div class="container text-center">
+            <div class="contact text-left">
+                <div class="form">
+                    <h6 class="section-title mb-4">İletişim Formu</h6>
+                    <form>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Mail" required="">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Şifre" required="">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="contact-message" id="" cols="30" rows="5" class="form-control" placeholder="Mesaj"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block rounded w-lg">Mesaj Gönder</button>
+                    </form>
+                </div>
+                <div class="contact-infos">
+                    <div class="item">
+                        <i class="ti-location-pin"></i>
+                        <div class="">
+                            <h5>Adres</h5>
+                            <p> Maslak, Kat: 5, Büyükdere Cd. No:237, 34398 Şişli/İstanbul</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <i class="ti-mobile"></i>
+                        <div>
+                            <h5>İletişim</h5>
+                            <p>444 3 330</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <i class="ti-email"></i>
+                        <div class="mb-0">
+                            <h5>Mail Adresi</h5>
+                            <p>info@bilgeadam.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3006.1137475162127!2d29.0244276!3d41.11020680000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab5eaea73b441%3A0x75e77ec3ec7b8876!2sBilge%20Adam%20Kurumsal!5e0!3m2!1str!2str!4v1679825990258!5m2!1str!2str" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="row align-items-center justify-content-xl-between">
+            <div class="col-xl-6 m-auto text-center">
+                <div class="copyright">
+                    <p>Made with <a href="https://www.creative-tim.com/product/argon-dashboard" target="_blank">Argon Dashboard</a> by Creative Tim</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/Andrea/js/jquery.min.js"></script>
+    <script src="~/Andrea/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/Andrea/js/popper.min.js"></script>
+    <script src="~/Andrea/js/bootstrap.min.js"></script>
+    <script src="~/Andrea/js/jquery.easing.1.3.js"></script>
+    <script src="~/Andrea/js/jquery.waypoints.min.js"></script>
+    <script src="~/Andrea/js/jquery.stellar.min.js"></script>
+    <script src="~/Andrea/js/owl.carousel.min.js"></script>
+    <script src="~/Andrea/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/Andrea/js/aos.js"></script>
+    <script src="~/Andrea/js/jquery.animateNumber.min.js"></script>
+    <script src="~/Andrea/js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;sensor=false"></script>
+    <script src="~/Andrea/js/google-map.js"></script>
+    <script src="~/Andrea/js/main.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        // sayfa yüklendiğinde fonkiyonu çalıştır.
+        $(window).on('load', function () {
+            // fonksiyon içinde, modalı görünür olacak şekilde ayarla
+            $('#fgModal').modal('show');
+            // Html tarafında ve burada verilen id'lerin aynı olmasına dikkat edin
+        });
+    </script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,67 @@
+﻿@model CategoryDetailVM
+
+<link href="~/css/appuserprofile.css" rel="stylesheet" />
+
+@section Header
+    {
+    <header class="header" id="home">
+        <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(https://raw.githubusercontent.com/creativetimofficial/argon-dashboard/gh-pages/assets-old/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+            <!-- Mask -->
+            @*            <span class="mask bg-gradient-default opacity-8"></span>*@
+            <!-- Header container -->
+        </div>
+        <!-- Header-widget -->
+        @*<div class="widget">
+            <div class="widget-item">
+                <h2>@Model.Item2.Count()</h2>
+                <p>Adet Yazar</p>
+            </div>
+            <div class="widget-item">
+                <h2>@Model.Item3.Count()</h2>
+                <p>Adet Makale</p>
+            </div>
+            <div class="widget-item">
+                <h2>@Model.Item1.Count()</h2>
+                <p>Adet Kategori</p>
+            </div>
+        </div>*@
+    </header>
+   }
+<div class="container">
+    <div class="main-body">
+        <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <img src="@Model.Image" alt="Admin" class="rounded-circle" width="250" ; height="250">
+                            <div class="mt-3">
+                                <p class="text-secondary mb-1">@Model.Name</p>
+                                <p class="text-secondary mb-1">@Model.Desription</p>
+                                <p class="text-secondary mb-1"> Category @Model.CreatedDate.ToShortDateString() tarihinde oluşturulmuştur...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                @await Component.InvokeAsync("CategoryArticles", new  {id=Model.ID})
+            </div>
+        </div>
+
+    </div>
+</div>
+
+    @section Footer
+    {
+    <footer class="footer">
+        <div class="row align-items-center justify-content-xl-between">
+            <div class="col-xl-6 m-auto text-center">
+                <div class="copyright">
+                    <p>Made with <a href="https://www.creative-tim.com/product/argon-dashboard" target="_blank">Argon Dashboard</a> by Creative Tim</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+}

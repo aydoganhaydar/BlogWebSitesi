@@ -1,0 +1,124 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Steller landing page.">
+    <meta name="author" content="Devcrud">
+    <title>Wonder</title>
+    <!-- <head> etiketi arasına Css dosyasını ekliyoruz -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- <head> bitiş -->
+    <!-- </body> etiketi bitişinden hemen önce aşağıdaki dosyalari çağırıyoruz -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback">
+    <!-- Font Awesome -->
+    <link href="~/temp/all.min.css" rel="stylesheet" />
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link href="~/temp/icheck-bootstrap.min.css" rel="stylesheet" />
+    <!-- JQVMap -->
+    <link href="~/temp/jqvmap.min.css" rel="stylesheet" />
+    <!-- Theme style -->
+    <link href="~/temp/adminlte.min.css" rel="stylesheet" />
+    <a href="~/temp/adminlte.min.css.map"></a>
+    <!-- overlayScrollbars -->
+    <link href="~/temp/overlayscrollbars.min.css" rel="stylesheet" />
+
+
+    <link href="~/temp/hakkimizda.css" rel="stylesheet" />
+    <link href="~/temp/hakkimizdaresponse.css" rel="stylesheet" />
+
+    <link href="~/temp/comment.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <link rel="stylesheet" href="~/assets/vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="~/Andrea/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="~/Andrea/css/animate.css">
+    <link rel="stylesheet" href="~/Andrea/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Andrea/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Andrea/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/Andrea/css/aos.css">
+    <link rel="stylesheet" href="~/Andrea/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/Andrea/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/Andrea/css/jquery.timepicker.css">
+    <link rel="stylesheet" href="~/Andrea/css/flaticon.css">
+    <link rel="stylesheet" href="~/Andrea/css/icomoon.css">
+    <link rel="stylesheet" href="~/Andrea/css/style.css">
+</head>
+<body>
+    <div class="main-content">
+        <nav class="navbar navbar-top navbar-expand-md " id="navbar" data-spy="affix" data-offset-top="0" style="margin-top:20px;">
+            <div class="container-fluid">
+                <ul class="navbar-nav ml-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">ANA SAYFA</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Hakkimizda">HAKKIMIZDA</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Create">KAYIT OL</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AdminLogin">ADMİN GİRİŞİ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="- btn btn-warning rounded ml-4" asp-area="" asp-controller="Home" asp-action="Login">GİRİŞ YAP</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        @RenderSection("Header",required:false)
+
+    </div>
+
+    @RenderBody()
+
+    @RenderSection("Contact",required:false)
+
+    @RenderSection("Footer",required:false)
+
+    <script src="~/Andrea/js/jquery.min.js"></script>
+    <script src="~/Andrea/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/Andrea/js/popper.min.js"></script>
+    <script src="~/Andrea/js/bootstrap.min.js"></script>
+    <script src="~/Andrea/js/jquery.easing.1.3.js"></script>
+    <script src="~/Andrea/js/jquery.waypoints.min.js"></script>
+    <script src="~/Andrea/js/jquery.stellar.min.js"></script>
+    <script src="~/Andrea/js/owl.carousel.min.js"></script>
+    <script src="~/Andrea/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/Andrea/js/aos.js"></script>
+    <script src="~/Andrea/js/jquery.animateNumber.min.js"></script>
+    <script src="~/Andrea/js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;sensor=false"></script>
+    <script src="~/Andrea/js/google-map.js"></script>
+    <script src="~/Andrea/js/main.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        // sayfa yüklendiğinde fonkiyonu çalıştır.
+        $(window).on('load', function () {
+            // fonksiyon içinde, modalı görünür olacak şekilde ayarla
+            $('#fgModal').modal('show');
+            // Html tarafında ve burada verilen id'lerin aynı olmasına dikkat edin
+        });
+    </script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿@model Tuple<List<Category>,List<AppUser>,List<Article>>
+
+@section Header
+    {
+    <header class="header" id="home">
+        <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(https://raw.githubusercontent.com/creativetimofficial/argon-dashboard/gh-pages/assets-old/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+            <!-- Mask -->
+            @*            <span class="mask bg-gradient-default opacity-8"></span>*@
+            <!-- Header container -->
+        </div>
+        <!-- Header-widget -->
+        <div class="widget">
+            <div class="widget-item">
+                <h2>@Model.Item2.Count()</h2>
+                <p>Adet Yazar</p>
+            </div>
+            <div class="widget-item">
+                <h2>@Model.Item3.Count()</h2>
+                <p>Adet Makale</p>
+            </div>
+            <div class="widget-item">
+                <h2>@Model.Item1.Count()</h2>
+                <p>Adet Kategori</p>
+            </div>
+        </div>
+    </header>
+   }
+<div class="sidebar-box ftco-animate" style="margin-top:100px">
+    <h1 class="sidebar-heading" style="text-align:center">KATEGORİLER</h1>
+    <ul class="tagcloud" style="margin-left:280px;">
+        @foreach (Category item in Model.Item1)
+        {
+            <a asp-action="Detail" asp-controller="Category" asp-route-id="@item.ID" class="tag-cloud-link" style="height:auto; width:auto; text-align: center; font-size:large;text-justify:inter-character; "> <img src="@item.Image" style="height:300px; width:300px;"> <br /> @item.Name </a>
+        }
+    </ul>
+</div>
+
+    @section Footer
+    {
+    <footer class="footer">
+        <div class="row align-items-center justify-content-xl-between">
+            <div class="col-xl-6 m-auto text-center">
+                <div class="copyright">
+                    <p>Made with <a href="https://www.creative-tim.com/product/argon-dashboard" target="_blank">Argon Dashboard</a> by Creative Tim</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+}

@@ -1,0 +1,38 @@
+﻿@model GetCommentVM
+
+<div class="modal fade" id="fgModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6>@Model.ArticleTitle Adlı Makale Yorumudur.</h6>
+            </div>
+            <div class="modal-body">
+                <div class="comment-widgets m-b-20">
+
+                    <div class="d-flex flex-row comment-row">
+                        <div class="p-2"><img class="img-fluid img-responsive rounded-circle mr-2" src="@Model.AppUserImage" width="50" height="50"></div>
+                        <div class="comment-text w-100">
+                            <h6>@Model.AppUserFullName</h6>
+                            <div class="comment-footer">
+                                <span class="date">@Model.CreatedDate</span>
+                            </div>
+                            <p class="m-b-5 m-t-10">@Model.Text</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                @if (Model.Onay == Onay.UnApproved)
+                {
+                    <a class="- btn btn-success rounded ml-4" asp-area="Adminn" asp-controller="Comment" asp-action="Onayy" asp-route-id="@Model.CommentID">Onayla</a>
+                    <a class="- btn btn-warning rounded ml-4" asp-area="Adminn" asp-controller="Comment" asp-action="Delete" asp-route-id="@Model.CommentID">Sil</a>
+                }
+                else
+                {
+                    <a class="- btn btn-primary rounded ml-4" asp-area="Adminn" asp-controller="Comment" asp-action="List">Kapat</a>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

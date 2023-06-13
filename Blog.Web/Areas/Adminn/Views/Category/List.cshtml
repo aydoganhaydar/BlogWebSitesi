@@ -1,0 +1,200 @@
+﻿@model List<GetCategoryyDTO>
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header p-2">
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Onay Bekleyen</a></li>
+                <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Aktif</a></li>
+                <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Pasif</a></li>
+            </ul>
+        </div><!-- /.card-header -->
+        <div class="card-body">
+            <div class="tab-content">
+                <div class="tab-pane active" id="activity">
+                    <section class="content">
+
+                        <!-- Default box -->
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <table class="table table-striped projects">
+                                    <thead>
+                                        <tr>
+
+                                            <th style="width: 20%" class="text-center">
+                                                Image
+                                            </th>
+                                            <th style="width: 20%" class="text-center">
+                                                Name
+                                            </th>
+                                            <th style="width: 20%" class="text-center">
+                                                Description
+                                            </th>
+                                            <th style="width: 20%" class="text-center">
+                                                Operations
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+
+                                        @foreach (GetCategoryyDTO item in Model)
+                                        {
+                                            @if (item.Onay == Onay.UnApproved)
+                                            {
+                                                <tr>
+                                                    <td class="text-center">
+                                                        <img src="@item.Image" class="img-circle elevation-2" style="height:50px;width:50px">
+                                                    </td>
+                                                    <td class="text-center">
+                                                        @item.Name
+                                                    </td>
+                                                    <td class="project_progress text-center">
+                                                        @item.Description
+                                                    </td>
+                                                    <td class="project-actions text-center">
+                                                        <a asp-action="Onayy" asp-controller="Category" asp-area="Adminn" asp-route-id="@item.ID" class="btn btn-success btn-sm">Onayla</a>
+                                                        <a asp-action="Delete" asp-controller="Category" asp-area="Adminn" asp-route-id="@item.ID" class="btn btn-danger">Sil</a>
+
+                                                    </td>
+                                                </tr>
+                                            }
+
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+
+                    </section>
+                </div>
+                <!-- /.tab-pane -->
+                <div class="tab-pane" id="timeline">
+                    <section class="content">
+
+                        <!-- Default box -->
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <table class="table table-striped projects">
+                                    <thead>
+                                        <tr>
+
+                                            <th style="width: 20%" class="text-center">
+                                                Image
+                                            </th>
+                                            <th style="width: 20%" class="text-center">
+                                                Name
+                                            </th>
+                                            <th style="width: 20%" class="text-center">
+                                                Description
+                                            </th>
+                                            <th style="width: 20%" class="text-center">
+                                                Status
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+
+                                        @foreach (GetCategoryyDTO item in Model)
+                                        {
+                                            @if (item.Onay == Onay.Approved && (item.Statu == Statu.Active || item.Statu == Statu.Modified))
+                                            {
+                                                <tr>
+                                                    <td class="text-center">
+                                                        <img src="@item.Image" class="img-circle elevation-2" style="height:50px;width:50px">
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <a asp-action="Detail" asp-area="Adminn" asp-controller="Category" asp-route-id="@item.ID">@item.Name</a>
+                                                    </td>
+                                                    <td class="project_progress text-center">
+                                                        @item.Description
+                                                    </td>
+                                                    <td class="project-state text-center">
+                                                        <span class="badge badge-success">@item.Statu</span>
+                                                    </td>
+                                                </tr>
+                                            }
+
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+
+                    </section>
+                </div>
+                <!-- /.tab-pane -->
+
+                <div class="tab-pane" id="settings">
+                    <section class="content">
+
+                        <!-- Default box -->
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <table class="table table-striped projects">
+                                    <thead>
+                                        <tr>
+
+                                            <th style="width: 20%" class="text-center">
+                                                Image
+                                            </th>
+                                            <th style="width: 20%" class="text-center">
+                                                Name
+                                            </th>
+                                            <th style="width: 20%" class="text-center">
+                                                Description
+                                            </th>
+                                            <th style="width: 20%" class="text-center">
+                                                Status
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+
+                                        @foreach (GetCategoryyDTO item in Model)
+                                        {
+                                            @if (item.Onay == Onay.Approved && item.Statu == Statu.Passive)
+                                            {
+                                                <tr>
+                                                    <td class="text-center">
+                                                        <img src="@item.Image" class="img-circle elevation-2" style="height:50px;width:50px">
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <a asp-action="Detail" asp-area="Adminn" asp-controller="Category" asp-route-id="@item.ID">@item.Name</a>
+                                                    </td>
+                                                    <td class="project_progress text-center">
+                                                        @item.Description
+                                                    </td>
+                                                    <td class="project-state text-center">
+                                                        <span class="badge badge-success">@item.Statu</span>
+                                                    </td>
+                                                </tr>
+                                            }
+
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+
+                    </section>
+                </div>
+                <!-- /.tab-pane -->
+            </div>
+            <!-- /.tab-content -->
+        </div><!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</div>
+

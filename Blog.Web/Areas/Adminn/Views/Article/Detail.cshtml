@@ -1,0 +1,27 @@
+﻿
+
+@model ArticleDetaillVM
+<div style="margin-bottom:20px;">
+    <div class="container pt-5">
+        <div class="col-md-12">
+            <!-- Box Comment -->
+            <div class="card card-widget">
+                <div class="card-header">
+                    <div class="user-block">
+                        <img class="img-circle" style="height:40px; width:40px;" src="@Model.UserImage" alt="User Image">
+                        <span class="username"><a asp-action="AppUserProfile" asp-controller="User" asp-route-id="@Model.UserId">@Model.UserFullName</a></span>
+                        <span class="description">Oluşturulma Tarihi: @Model.CreatedDate.ToShortDateString()</span>
+                    </div>
+                    <!-- /.user-block -->
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <img class="img-fluid pad" style="height:550px; width:1100px" src="@Model.Image" alt="Photo">
+                    <h2>@Model.Title</h2>
+                    <p>@Model.Content</p>
+                </div>
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+</div>

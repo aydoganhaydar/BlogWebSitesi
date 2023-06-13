@@ -1,0 +1,42 @@
+﻿@model Tuple<Admin, List<GetArticleWithUsersVM>>
+
+<section class="ftco-section ftco-no-pt ftco-no-pb ">
+    <div class="container mt-5">
+        <div class="row d-flex">
+            <div class="col-xl-12 py-5 px-md-5">
+                <div class="row">
+                    @foreach (var item in Model.Item2)
+                    {
+                        <div class=" card col-md-12 mb-4">
+                            <div class="blog-entry ftco-animate d-md-flex fadeInUp ftco-animated mt-4 mb-2">
+                                <img src="@item.Image" class="img img-2">
+                                <div class="text text-2 pl-md-4">
+                                    <h3 class="mb-2"><a>@item.Title</a></h3>
+                                    <div class="meta-wrap">
+                                        <p class="meta">
+                                            <span><i class="icon-calendar mr-2"></i>@item.CreatedDate.ToShortDateString()</span>
+                                            <span><a asp-action="Detail" asp-controller="Category" asp-route-id="@item.CategoryId"><i class="icon-folder-o mr-2"></i>@item.CategoryName</a></span>
+                                            <span><i class="ti-thumb-up"></i>@item.Likes.Count()</span>
+                                            <span><i class="icon-comment2 mr-2"></i>@item.Comments.Count()</span>
+                                        </p>
+                                    </div>
+                                    <p class="mb-4">@item.Content.Substring(0,150)</p>
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        <a asp-action="Detail" asp-controller="Article" asp-area="Adminn" asp-route-id="@item.ArticleID">Devamı için Tıklayınız...</a>
+                                    }
+                                    else
+                                    {
+                                        <a asp-action="Detail" asp-controller="Article" asp-area="" asp-route-id="@item.ArticleID">Devamı için Tıklayınız...</a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div><!-- END-->
+            </div>
+
+        </div>
+    </div>
+</section>

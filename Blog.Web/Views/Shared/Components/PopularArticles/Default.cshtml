@@ -1,0 +1,27 @@
+﻿@model List<Article>
+
+<div class="sidebar-box ftco-animate fadeInUp ftco-animated">
+	<h3 class="sidebar-heading">Popüler Makaleler</h3>
+	@foreach (var item in Model)
+	{
+			<div class="block-21 mb-4 d-flex">
+				<img src="@item.Image" class="img-circle mr-4 mt-4" style="height:75px; width:75px">
+
+				<div class="text">
+					<h3 class="heading">
+						<a asp-action="Detail" asp-controller="Article" asp-route-id="@item.ID">@item.Title</a>
+						</h3>
+					<div class="meta">
+						<div><a href="#"><span class="icon-calendar"></span>@item.CreatedDate.ToShortDateString()</a></div>
+					<div><a asp-action="AppUserProfile" asp-controller="User" asp-route-id="@item.AppUser.ID"><span class="icon-person"></span> @item.AppUser.FullName
+
+		</a>
+
+		</div>
+						<div><a><span class="icon-text"></span> @item.Content.Substring(0,50)</a></div>
+						<div><a><span class="ti-thumb-up"></span> @item.Likes.Count()</a></div>
+					</div>
+				</div>
+			</div>
+	}
+</div>

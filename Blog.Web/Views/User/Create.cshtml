@@ -1,0 +1,65 @@
+﻿@model CreateUserDTO
+
+<link rel="stylesheet" href="~/SignUp/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+<!-- Main css -->
+<link rel="stylesheet" href="~/SignUp/css/style.css">
+
+<div class="main" style="margin-top:100px;">
+    <section class="signup">
+        <div class="container">
+            <div class="signup-content">
+                <div class="signup-form">
+                    <center><h2 class="form-title">KAYIT OL</h2></center>
+                    <form asp-action="Create" method="post" class="register-form" id="register-form" enctype="multipart/form-data">
+                        <div class="form-group">
+
+                            <input asp-for="FirstName" type="text" class="form-input" placeholder="First Name" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+
+                            <input asp-for="LastName" type="text" class="form-input" placeholder="Last Name" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+
+                            <input asp-for="UserName" type="text" class="form-input" placeholder="User Name" />
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+
+                            <input asp-for="Mail" type="email" class="form-input" placeholder="E-Mail " />
+                            <span asp-validation-for="Mail" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+
+                            <input asp-for="Password" type="password" class="form-input" placeholder="Password" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+
+                            <input asp-for="ImagePath" type="file" class="form-input" />
+                            <span asp-validation-for="ImagePath" class="text-danger"></span>
+                        </div>
+
+
+                        <div class="form-group form-button">
+                            <input type="submit" name="signup" id="signup" class="btn form-submit">
+                        </div>
+                        <p>
+                            <center>Zaten bir hesabınız var mı?<a asp-action="Login" asp-controller="Home" asp-area="" class="loginhere-link"> Giriş Yap</a></center>
+                        </p>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</div>
+
+<script src="~/SignInandSignUp/vendor/jquery/jquery.min.js"></script>
+<script src="~/SignInandSignUp/js/main.js"></script>
+

@@ -1,0 +1,50 @@
+﻿@model Tuple<List<GetCategoryDTO>,AppUser>
+
+@section UserInfo
+    {
+    @await Component.InvokeAsync("AppUsers", new  {id=Model.Item2.ID})
+ }
+
+    <div class="card col-md-8" style="margin-left:300px; margin-top:50px; margin-bottom:50px;">
+        <div class="card-header" style="margin-top:10px;">
+            <h3 class="card-title">KATEGORİ LİSTESİ</h3>
+        </div>
+        <div class="card-body p-0" style="margin-bottom:10px;"> 
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+
+                        <th>Kategori Adı</th>
+                        <th>Açıklama</th>
+                        <th></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (GetCategoryDTO item in Model.Item1)
+                {
+                    <tr>
+                        <td><a asp-action="Detail" asp-area="Member" asp-controller="Category" asp-route-id="@item.ID">@item.Name</a></td>
+                        <td>@item.Description</td>
+                        <td><a asp-action="Update" asp-route-id="@item.ID" class="btn btn-success">Güncelle</a></td>
+                        <td><a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-warning">Sil</a></td>
+                        <td>
+                            @if (item.follwedCategories.Any(a => a.AppUserID == Model.Item2.ID))
+                            {
+                                <a asp-action="UnFollow" asp-route-id="@item.ID" class="btn btn-info">Takip Bırak</a>
+                            }
+                            else
+                             {
+                                <a asp-action="Follow" asp-route-id="@item.ID" class="btn btn-info">Takip Et</a>
+                             }
+                            
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+</div>

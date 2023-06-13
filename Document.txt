@@ -1,0 +1,43 @@
+
+BLOG PROJESÝ
+
+* Ýlk etapta Class Library templatini seçerek MODEL katmanýmýzý oluþturacaðýz.
+* Entities klasörü ve altýna => Abstract ve Concrete klasörlerini açalým ve çalýþacaðýmýz sýnýflarýmýzý oluþturalým.
+
+* Entities => TypeConfiguration klasörü ve altýna => Abstract ve Concrete klasörleri altýna sýnýflarýn ayaða kalkarken taþýmasýný istediðimiz konfigurasyonlarýný yapalým.
+			Burada kullanacaðýmýz IEntityConfiguration bizden MIC.EFCORE isteyecektir. ancak MIC.EFCORE.SQLSERVER paketinde ef.core zaten gömülü geldiði için sqlserver paketini indireceðiz.
+
+			Sedd Data olarak eklemek istediðimiz role için , ýdentityRole sýnýfýna ihtiyacým oldu ki bu sýnýf aslýnda bir kütüphane içinde tanýmlý bir sýnýf. Bu yüzden Mic.Extensions.Identity.Stores paketini projemize uyumlu olcak þekilde indirdik ve ilk rolümüzü oluþturduk.
+*********************************
+
+* Ýkinci olarak projemizin veriye eriþim yani DAL(Data Access Layer) katmanýzý oluþturacaðýz. Bunun içinde Class Library projesini oluþturuyoruz.
+
+DAL => Context klasörü ve altýna CContext sýnýfýný açalým.
+DAL => Repositories klasörü ve altýna => Abstract
+										 Concrete
+										 Interfaces => Kendi içinde Abstract ve Concrete olarak parçalayacaðýz.
+Metot kütüphanesindeki metotlarýn önce soyut hallerini yani interface lerini ve devamýnda CONCRETE hallerini oluþturacaðýz.
+
+DAL => Sonrasýnda ise Migration baþlatacaðýz. (add-migration one ve update-database) => Mic.Asp.NetCore.Tools paketini kullanacaðýz. 
+	   Context sýnýfýmýz bu kez DbContextten deðil IdentityDbContextten kalýtým alacak. => Mic. Asp.NetCore.Identity.FrameworkCore paketini kullanacaðýz.
+	   Ýhtiyacýmýz olduðu durumda ki olacaktýr, MODEL katmanýný DAL katmanýna referans verebiliriz. (eriþim belirleyicileri de önemli tabiki public mi ?)
+
+*********************************
+
+3. MVC patterýný kullanacaðýmýz bir WEB projesi oluþturacaðýz. ASP.NETCORE WEB (MVC) olarak projemizi açalým.
+
+Göç baþlatmamýz gerektiði için Appsetting.jsona ConnectionStringimizi yazalým.
+StartUp da AddDbContext() eklemeyi unutmayalým.
+DÝKKAT => Göç baþlatýrken dizinde seçili proje WEB projesi ama package manager console daki default proje ise : CONTEXT in olduðu projedir.!!!
+
+Göç için bizden MIC.EFCORE.DESING VE EFCORE.TOOLS paketini isteyebilir.
+
+Göç Ýçin => add-migration one ve ardýndan update-database
+
+Devsmýnda kayýtsýz kullanýcýnýn kayýt olabilmesi ve devamýnda login olabilmesi  gerekmektedir. Bu iþlemleri AREA açmadan, web projesindeki MVC ile yöneteceðiz fakat devamýnda artýk kayýtlý kullanýcýnýn yapmasý gereken makale oluþturma, güncelleme, kategori olulturma, güncelleme vb iþlemler için AREAS klasörünü açýp add-area seçerek MEMBER adýnda kayýtlý bir kullanýcý AREA sýnýfý oluþturulmalý ve CRUD iþlemlerine orada devam etmeliyiz.
+
+* Bu iþlemler için MAPLEME sýrasýnda => AutoMapper + AutoMapper.Etension.Mic.DI paketlerini indireceðiz.
+* StartUp da Identity Kütüphanesi, mapper ve DI kullandýðýmýzý yazmayý unutmamalýyýz. 
+* Fotoðraf iþlemleri için => SixLabers.ImageSharp.Web paketlerini kullanacaðýz.
+
+*Her paket için farklý farklý kiþi/kurumlara kütüphaneleri olabilir ancak biz bunlarý tercih ettik.

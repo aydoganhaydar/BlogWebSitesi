@@ -1,0 +1,63 @@
+﻿@model LoginDTO
+
+<link rel="stylesheet" type="text/css" href="~/Login/css/util.css">
+<link rel="stylesheet" type="text/css" href="~/Login/css/main.css">
+<link rel="stylesheet" href="~/SignUp/css/style.css">
+<link rel="stylesheet" type="text/css" href="~/Login/fonts/iconic/css/material-design-iconic-font.min.css">
+
+<!--===============================================================================================-->
+<div class="container-login100" style="margin-top:100px;">
+        <div class="wrap-login100 mt-2">
+            <form class="login100-form validate-form" method="post">
+                <center><h2 class="form-title">GİRİŞ YAP</h2></center>
+                <span class="login100-form-title p-b-48">
+                    <i class="zmdi zmdi-account-circle"></i>
+                </span>
+
+                <div class="form-group">
+                    <input asp-for="Mail" class="form-input" type="email" placeholder="E-Mail ">
+                    <span asp-validation-for="Mail" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <span class="btn-show-pass">
+                        <i class="zmdi zmdi-eye"></i>
+                    </span>
+                    <input asp-for="Password" class="form-input" type="password" placeholder="Password">
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <div class="wrap-login100-form-btn">
+                        <div class="login100-form-bgbtn"></div>
+                        <input type="submit" name="signup" id="signup" class="btn form-submit">
+                    </div>
+                </div>
+
+                <div class="text-center p-t-115">
+                    <p>
+                        <center>Hesabınız yok mu?<a asp-action="Create" asp-controller="User" asp-area="" class="loginhere-link"> Hesap Oluştur</a></center>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+<!--===============================================================================================-->
+<script src="~/Login/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="~/Login/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="~/Login/vendor/bootstrap/js/popper.js"></script>
+<script src="~/Login/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="~/Login/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="~/Login/vendor/daterangepicker/moment.min.js"></script>
+<script src="~/Login/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="~/Login/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+<script src="~/Login/js/main.js"></script>
+
