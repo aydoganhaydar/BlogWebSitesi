@@ -1,2 +1,2 @@
 # BlogWebSitesi
-Projem blog oluşturmak için geliştirdiğim bir web sitesidir. 
+Blog oluşturmak için geliştirmiş olduğum bir projedir. 
